@@ -1,0 +1,17 @@
+import os
+import pandas
+import xlwings as xl
+file_path='D:\\studybook\\PC\\python\\PythonStudy\\AutoExcelOperation\\excelFile'
+file_list=os.listdir(file_path)
+app =xl.App(visible=True,add_book=False)
+for f in file_list:
+ if f.startswith('~$'):
+    continue
+ wb=app.books.open(file_path+ "\\" + f)
+ shees_name=wb.sheet_names
+ print(shees_name)
+ sht= wb.sheets('Sheet1') #new method
+ sht.api.PrintOut()
+ wb.close()
+app.quit() 
+
