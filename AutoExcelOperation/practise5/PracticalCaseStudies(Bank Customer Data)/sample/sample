@@ -1,0 +1,32 @@
+import xlwings as xw  # 导入 xlwings 模块
+import pandas as pd  # 导入 pandas 模块
+
+app = xw.App(visible=True, add_book=False)  # 启动 Excel 程序
+
+wb = app.books.open('D:\\studybook\\PC\\excelFile\\detail.xlsx')  # 打开 Excel 工作簿
+
+data_list = []  # 初始化数据列表
+
+for sheet in wb.sheets:  # 遍历所有工作表
+    data = sheet.range("A1").options(pd.DataFrame, header=1, index=False, expand="table").value
+    if data is not None and 'payment' in data:  # 判断该表是否包含“付款方式”列
+        data_row = data[data["payment"] == "card"]  # 提取“付款方式”为“加油卡”的数据
+        data_list.append(data_row)  # 将数据添加到列表
+
+# 创建新工作簿
+new_wb = app.books.add()  
+new_sht = new_wb.sheets.add('card')  # 新建工作表并命名
+
+# 设置单元格格式
+new_sht.range('D:D').api.NumberFormat = 'YYYY/mm/dd'  # 日期格式
+new_sht.range('F:F').api.NumberFormat = '0.00'  # 数字格式
+
+# 写入数据
+new_sht.range('A1').value = pd.concat(data_list, ignore_index=True).set_index("card")
+
+# 保存文件
+new_wb.save('D:\\studybook\\PC\\excelFile\\new3.xlsx')  
+new_wb.close()
+wb.close()
+
+app.quit()  # 退出 Excel 程序
