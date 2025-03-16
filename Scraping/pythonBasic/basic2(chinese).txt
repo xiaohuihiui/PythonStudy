@@ -1,0 +1,17 @@
+>函数
+ 1.函数是什么
+ 2.函数的作用
+ 3.定义函数
+  def name(parm1,parm....):
+    statemnt n
+    return  value
+  4.调用函数
+  5.函数的默认参数
+  6.python函数的注意事项
+    函数参数的类型决定它的作用范围   
+    默认参数陷阱
+>类与面向对象编程  
+ 1.如何定义一个类
+ class name(object):
+  def _init_(self,name,age) :
+ 2.如何读懂一个类    
