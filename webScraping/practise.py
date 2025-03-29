@@ -11,38 +11,42 @@ def get_resource(html):
     url:resource location
     return:original resouce   
     """
-    html=requests.get(url)
+    html=requests.get(html)
     return html.content.decode('gbk')
-
-print(get_resource(url))
 
 
 def get_toc(html):
       
  toc_url_list=[]
- toc_block=re.findall('正文(.*?)</tbody>',html,re.S)
+ toc_block=re.findall('正文(.*?)</tbody>',html,re.S)[0]
  toc_url=re.findall('href="(.*?)"',toc_block,re.S)
  for  url in toc_url:
      toc_url_list.append(start_url+url)
-     print(toc_url_list)
  return toc_url_list
 
 
 def get_article(html):
+     chapter_name = re.search('size="4">(.*?)<', html, re.S).group(1)
+     text_block = re.search('<p>(.*?)</p>', html, re.S).group(1)
+     text_block = text_block.replace('<br />', '')
+     return chapter_name, text_block
+
+def save(chapter, article):
+    os.makedirs('animals', exist_ok=True) #
+    with open(os.path.join('animals', chapter + '.txt'), 'w', encoding='utf-8') as f:
+        f.write(article)
 
 
 
+        
+def query_article(url):
 
-    
-    return 
+ article_html = get_resource(url)
+ chapter_name, article_text = get_article(article_html)
+ save(chapter_name, article_text)
 
-
-
-def get_top(html):
-
-       """
-    get each parc link and return a list form
-    param_html:resource location
-    return:each artical link   
-    """
-       
+if __name__ == '__main__':
+    toc_html = get_resource(start_url)
+    toc_list = get_toc(toc_html)
+    pool = Pool(4)
+    pool.map(query_article, toc_list)
