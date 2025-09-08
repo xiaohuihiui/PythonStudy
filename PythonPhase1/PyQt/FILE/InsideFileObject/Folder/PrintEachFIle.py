@@ -21,4 +21,4 @@ class tree(object):
          treeFinside = self.tree.insert(root, 0, text=filename, values=(abspath))
          if os.path.isdir(abspath):              # ディレクトリなら再帰呼び出し
             self.showtree(abspath, treeFinside)
-tree(r"E:\GitCheck\EnglishLearnning")
+tree(r"/EnglishLearnning")

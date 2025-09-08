@@ -1,0 +1,35 @@
+web
+network
+dataScience
+database
+mutiple development
+game
+
+plug in
+Django – Web framework
+
+web.py – Lightweight web framework
+
+Matplotlib – Plotting library
+
+SciPy – Scientific computing library
+
+NumPy – Numerical computing library
+
+PyGtk – GUI library (deprecated)
+
+PyQt – GUI library
+
+WxPython – GUI library
+
+BeautifulSoup – HTML/XML parsing library
+
+PIL (Python Imaging Library, replaced by Pillow) – Image processing library
+
+MySQLdb – MySQL database interface
+
+PyGame – Game development framework
+
+Py2exe – Packaging tool (creates Windows executables)
+
+pefile – PE file parsing library (for Windows executable format)

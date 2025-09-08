@@ -1,4 +1,4 @@
 import os
-tuple=os.walk(r"E:\GitCheck")
+tuple=os.walk(r"/")
 for tuple in tuple:
     print(tuple)
