@@ -33,3 +33,6 @@ PyGame – Game development framework
 Py2exe – Packaging tool (creates Windows executables)
 
 pefile – PE file parsing library (for Windows executable format)
+
+GYM
+https://gymnasium.farama.org/environments/mujoco/
