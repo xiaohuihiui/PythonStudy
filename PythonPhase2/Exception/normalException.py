@@ -1,0 +1,18 @@
+from pydantic.v1 import NumberNotLtError
+
+SyntaxError
+TypeError
+ZeroDivisionError
+NameError
+AttributeError
+IndexError
+KeyError
+AssertionError
+FileNotFoundError
+ModuleNotFoundError
+IndentationError
+ValueError
+MemoryError
+OSError
+
+
