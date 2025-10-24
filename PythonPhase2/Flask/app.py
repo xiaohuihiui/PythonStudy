@@ -2,6 +2,9 @@ from flask import Flask
 from bookAndUser import app
 from functiongetUrl import  app
 from RenderTemple import  app
+from RenderTempleone import app
+from T9And2 import app
+
 
 @app.route('/')
 def hello():
