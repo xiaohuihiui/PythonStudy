@@ -1,9 +1,0 @@
-x=[1,2,3]
-y=iter(x)
-z=iter(x)
-print(next(y))
-print(next(z))
-print(next(z))
-print(type(x))
-print(next(y))
-print(type(y))
